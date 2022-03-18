@@ -34,7 +34,7 @@ class _ToggleButtonnState extends State<ToggleButtonn> {
       color: Colors.black,
       fillColor: Colors.deepPurple[50],
       renderBorder: true,
-      borderRadius: BorderRadius.circular(5),
+      borderRadius: BorderRadius.circular(8),
       children: <Widget>[
         Text(text1, style: TextStyle(fontSize: 10)),
         Text(text2, style: TextStyle(fontSize: 10)),
@@ -44,7 +44,7 @@ class _ToggleButtonnState extends State<ToggleButtonn> {
           for (int i = 0; i < isSelected.length; i++) {
             isSelected[i] = i == index;
           }
-          //isSelected[index] = !isSelected[index];
+          // isSelected[index] = !isSelected[index];
         });
       },
     );

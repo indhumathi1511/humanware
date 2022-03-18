@@ -5,4 +5,5 @@ final kboxdecoration = BoxDecoration(
     shape: BoxShape.rectangle,
     borderRadius: BorderRadius.circular(12),
     border: Border.all(color: Color(0xFFC7C7C7)));
-const ktextStyle = TextStyle(fontWeight: FontWeight.bold);
+const ktextStyle = TextStyle(fontWeight: FontWeight.w600);
+const kBorderColor = Color(0xFFC7C7C7);

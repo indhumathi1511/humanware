@@ -2,15 +2,9 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:getwidget/components/toggle/gf_toggle.dart';
 
+import 'constants.dart';
 import 'toggle1.dart';
 //import 'toggle.dart';
-
-const kPrimaryColor = Colors.deepPurpleAccent;
-final kboxdecoration = BoxDecoration(
-    shape: BoxShape.rectangle,
-    borderRadius: BorderRadius.circular(12),
-    border: Border.all(color: Color(0xFFC7C7C7)));
-const ktextStyle = TextStyle(fontWeight: FontWeight.w600);
 
 class Mobile extends StatefulWidget {
   const Mobile({Key? key}) : super(key: key);
@@ -163,10 +157,14 @@ class _MobileState extends State<Mobile> {
                       child: Row(
                         children: [
                           Container(
-                            child: Icon(Icons.calendar_month),
+                            child: Icon(
+                              Icons.calendar_month,
+                              size: 15,
+                              color: kPrimaryColor,
+                            ),
                             decoration: BoxDecoration(
                                 shape: BoxShape.rectangle,
-                                borderRadius: BorderRadius.circular(6),
+                                borderRadius: BorderRadius.circular(5),
                                 border: Border.all(color: Color(0xFFC7C7C7))),
                           ),
                           SizedBox(

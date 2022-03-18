@@ -2,14 +2,9 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:getwidget/components/toggle/gf_toggle.dart';
 
+import 'constants.dart';
 import 'mobile.dart';
-
-const kPrimaryColor = Colors.deepPurpleAccent;
-final kboxdecoration = BoxDecoration(
-    shape: BoxShape.rectangle,
-    borderRadius: BorderRadius.circular(12),
-    border: Border.all(color: Color(0xFFC7C7C7)));
-const ktextStyle = TextStyle(fontWeight: FontWeight.bold);
+import 'toggle.dart';
 
 class LocalTravel extends StatefulWidget {
   const LocalTravel({Key? key}) : super(key: key);
@@ -20,7 +15,7 @@ class LocalTravel extends StatefulWidget {
 
 class _LocalTravelState extends State<LocalTravel> {
 //TabController tabController=TabController(length: 3, vsync: this);
-  var selectedValue = 'Car';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,14 +33,14 @@ class _LocalTravelState extends State<LocalTravel> {
                   children: const [
                     Text(
                       'Expense type',
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: ktextStyle,
                     ),
                     SizedBox(
                       width: 80,
                     ),
                     Text(
                       'Mode',
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: ktextStyle,
                     ),
                   ],
                 ),
@@ -60,38 +55,47 @@ class _LocalTravelState extends State<LocalTravel> {
                       const SizedBox(
                         width: 26,
                       ),
-                      // DropdownButton(items: items, onChanged: onChanged)
-
                       Expanded(
                         flex: 1,
-                        child: Container(
-                          height: 43,
-                          width: 139,
-                          decoration: BoxDecoration(
-                              border:
-                                  Border.all(color: const Color(0xFFC7C7C7)),
-                              borderRadius: BorderRadius.circular(8)),
-                          child: Center(
-                            child: DropdownButton<String>(
-                              icon: Icon(Icons.arrow_drop_down),
-                              value: selectedValue,
-                              items: <String>['Bike', 'Train', 'Car', 'Bus']
-                                  .map((String value) {
-                                return DropdownMenuItem<String>(
-                                  child: Text(value),
-                                  value: value,
-                                );
-                              }).toList(),
-                              onChanged: (String? value) {
-                                setState(() {
-                                  //  value = selectedValue;
-                                  selectedValue = value!;
-                                });
-                              },
+                        child: Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Container(
+                            height: 43,
+                            width: 139,
+                            decoration: kboxdecoration,
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                children: [
+                                  Container(
+                                    height: 24,
+                                    width: 24,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(7),
+                                      color: kBorderColor,
+                                    ),
+                                    child: Icon(
+                                      Icons.calendar_month,
+                                      color: kPrimaryColor,
+                                      size: 11,
+                                    ),
+                                  ),
+                                  Center(
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(6.0),
+                                      child: Center(child: Text('Car')),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 10,
+                                  ),
+                                  Icon(Icons.keyboard_arrow_down),
+                                ],
+                              ),
                             ),
                           ),
                         ),
-                      )
+                      ),
                     ],
                   ),
                 ),
@@ -100,26 +104,89 @@ class _LocalTravelState extends State<LocalTravel> {
                 ),
                 Text(
                   'From Place',
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: ktextStyle,
                 ),
                 SizedBox(
                   height: 10,
                 ),
-                BoxContainer(
-                  text: 'Bangalore',
-                  icon: Icons.my_location,
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Container(
+                    height: 43,
+                    width: 139,
+                    decoration: kboxdecoration,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        children: [
+                          Container(
+                            height: 24,
+                            width: 24,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(7),
+                              color: kBorderColor,
+                            ),
+                            child: Icon(
+                              Icons.my_location,
+                              color: kPrimaryColor,
+                              size: 11,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Center(
+                            child: Center(child: Text('Bangalore')),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ),
                 SizedBox(
                   height: 15,
                 ),
                 Text(
                   'To Place',
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: ktextStyle,
                 ),
                 SizedBox(
                   height: 10,
                 ),
-                BoxContainer(icon: Icons.location_on_outlined, text: 'Mumbai'),
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Container(
+                    height: 43,
+                    width: 139,
+                    decoration: kboxdecoration,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        children: [
+                          Container(
+                            height: 24,
+                            width: 24,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(7),
+                              color: kBorderColor,
+                            ),
+                            child: Icon(
+                              Icons.share_location_outlined,
+                              color: kPrimaryColor,
+                              size: 11,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Center(
+                            child: Center(child: Text('Mumbai')),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
                 SizedBox(
                   height: 15,
                 ),
@@ -132,14 +199,14 @@ class _LocalTravelState extends State<LocalTravel> {
                   children: [
                     Text(
                       'Kilometer',
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: ktextStyle,
                     ),
                     SizedBox(
                       width: 103,
                     ),
                     Text(
                       'Claim Amount',
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: ktextStyle,
                     ),
                   ],
                 ),
@@ -169,7 +236,7 @@ class _LocalTravelState extends State<LocalTravel> {
                           decoration: kboxdecoration,
                           child: Padding(
                             padding: const EdgeInsets.all(12.0),
-                            child: Text('Rs:500'),
+                            child: Text('₹ 500'),
                           )),
                     ),
                   ],
@@ -181,14 +248,14 @@ class _LocalTravelState extends State<LocalTravel> {
                   children: [
                     Text(
                       'Travel Date',
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: ktextStyle,
                     ),
                     SizedBox(
                       width: 103,
                     ),
                     Text(
                       'Ticket ID',
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: ktextStyle,
                     ),
                   ],
                 ),
@@ -200,10 +267,39 @@ class _LocalTravelState extends State<LocalTravel> {
                   children: [
                     Expanded(
                       flex: 1,
-                      child: BoxContainer(
-                        text: '25 Jan \'22',
-                        icon: Icons.calendar_month,
+                      child: Container(
+                        height: 43,
+                        width: 295,
+                        decoration: kboxdecoration,
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Row(
+                            children: [
+                              Container(
+                                height: 24,
+                                width: 24,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(7),
+                                  color: kBorderColor,
+                                ),
+                                child: Icon(
+                                  Icons.calendar_month,
+                                  size: 11,
+                                  color: kPrimaryColor,
+                                ),
+                              ),
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Text('25 Jan \'22'),
+                            ],
+                          ),
+                        ),
                       ),
+                      // child: BoxContainer(
+                      //   text: '25 Jan \'22',
+                      //   icon: Icons.calendar_month,
+                      // ),
                     ),
                     SizedBox(width: 26),
                     Expanded(
@@ -227,7 +323,7 @@ class _LocalTravelState extends State<LocalTravel> {
                   children: [
                     Text(
                       'Are you working on projects?',
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: ktextStyle,
                     ),
                     SizedBox(
                       width: 50,
@@ -263,7 +359,7 @@ class _LocalTravelState extends State<LocalTravel> {
                 SizedBox(height: 15),
                 Text(
                   'Purpose of Visit',
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: ktextStyle,
                 ),
                 SizedBox(height: 10),
                 TextField(
@@ -281,7 +377,7 @@ class _LocalTravelState extends State<LocalTravel> {
                 ),
                 Text(
                   'Purpose of Visit',
-                  style: TextStyle(fontWeight: FontWeight.bold),
+                  style: ktextStyle,
                 ),
                 SizedBox(
                   height: 10,
@@ -410,54 +506,54 @@ class BoxContainer extends StatelessWidget {
     );
   }
 }
-
-class ToggleButton extends StatefulWidget {
-  const ToggleButton({Key? key}) : super(key: key);
-
-  @override
-  State<ToggleButton> createState() => _ToggleButtonState();
-}
-
-class _ToggleButtonState extends State<ToggleButton> {
-  List<bool> isSelected = [true, false];
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 43,
-      width: 135,
-      padding: EdgeInsets.all(10),
-      decoration: BoxDecoration(
-        shape: BoxShape.rectangle,
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: Color(0xFFC7C7C7)),
-      ),
-      child: Center(
-        child: buildToggleButtons('Self', 'Hired'),
-      ),
-    );
-  }
-
-  ToggleButtons buildToggleButtons(String text1, String text2) {
-    return ToggleButtons(
-      isSelected: isSelected,
-      selectedColor: Colors.deepPurpleAccent,
-      color: Colors.black,
-      fillColor: Colors.deepPurple[50],
-      renderBorder: true,
-      borderRadius: BorderRadius.circular(5),
-      children: <Widget>[
-        Text(text1, style: TextStyle(fontSize: 10)),
-        Text(text2, style: TextStyle(fontSize: 10)),
-      ],
-      onPressed: (int index) {
-        setState(() {
-          for (int i = 0; i < isSelected.length; i++) {
-            isSelected[i] = i == index;
-          }
-          //isSelected[index] = !isSelected[index];
-        });
-      },
-    );
-  }
-}
+//
+// class ToggleButton extends StatefulWidget {
+//   const ToggleButton({Key? key}) : super(key: key);
+//
+//   @override
+//   State<ToggleButton> createState() => _ToggleButtonState();
+// }
+//
+// class _ToggleButtonState extends State<ToggleButton> {
+//   List<bool> isSelected = [true, false];
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       height: 43,
+//       width: 135,
+//       padding: EdgeInsets.all(10),
+//       decoration: BoxDecoration(
+//         shape: BoxShape.rectangle,
+//         borderRadius: BorderRadius.circular(12),
+//         border: Border.all(color: Color(0xFFC7C7C7)),
+//       ),
+//       child: Center(
+//         child: buildToggleButtons('Self', 'Hired'),
+//       ),
+//     );
+//   }
+//
+//   ToggleButtons buildToggleButtons(String text1, String text2) {
+//     return ToggleButtons(
+//       isSelected: isSelected,
+//       selectedColor: Colors.deepPurpleAccent,
+//       color: Colors.black,
+//       fillColor: Colors.deepPurple[50],
+//       renderBorder: true,
+//       borderRadius: BorderRadius.circular(5),
+//       children: <Widget>[
+//         Text(text1, style: TextStyle(fontSize: 10)),
+//         Text(text2, style: TextStyle(fontSize: 10)),
+//       ],
+//       onPressed: (int index) {
+//         setState(() {
+//           for (int i = 0; i < isSelected.length; i++) {
+//             isSelected[i] = i == index;
+//           }
+//           //isSelected[index] = !isSelected[index];
+//         });
+//       },
+//     );
+//   }
+// }
