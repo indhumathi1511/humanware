@@ -1,6 +1,7 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:getwidget/components/toggle/gf_toggle.dart';
+import 'package:humanware/mobile.dart';
 
 import 'constants.dart';
 import 'toggle.dart';
@@ -239,10 +240,7 @@ class _LocalTravelState extends State<LocalTravel> {
                 Container(
                   height: 43,
                   width: 295,
-                  decoration: BoxDecoration(
-                      shape: BoxShape.rectangle,
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(color: Color(0xFFC7C7C7))),
+                  decoration: kboxdecoration,
                   child: Row(
                     children: [
                       Padding(
@@ -358,7 +356,10 @@ class _LocalTravelState extends State<LocalTravel> {
                         minimumSize: Size(180, 47),
                         // Background color
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => Mobile()));
+                      },
                       child: Text(
                         ' + Add',
                         style: TextStyle(

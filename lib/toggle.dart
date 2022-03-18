@@ -22,27 +22,31 @@ class _ToggleButtonState extends State<ToggleButton> {
         border: Border.all(color: Color(0xFFC7C7C7)),
       ),
       child: Center(
-        child: ToggleButtons(
-          isSelected: isSelected,
-          selectedColor: Colors.deepPurpleAccent,
-          color: Colors.black,
-          fillColor: Colors.deepPurple[50],
-          renderBorder: true,
-          borderRadius: BorderRadius.circular(5),
-          children: <Widget>[
-            Text('Self', style: TextStyle(fontSize: 10)),
-            Text('Hired', style: TextStyle(fontSize: 10)),
-          ],
-          onPressed: (int index) {
-            setState(() {
-              for (int i = 0; i < isSelected.length; i++) {
-                isSelected[i] = i == index;
-              }
-              //isSelected[index] = !isSelected[index];
-            });
-          },
-        ),
+        child: buildToggleButtons('Self', 'Hired'),
       ),
+    );
+  }
+
+  ToggleButtons buildToggleButtons(String text1, String text2) {
+    return ToggleButtons(
+      isSelected: isSelected,
+      selectedColor: Colors.deepPurpleAccent,
+      color: Colors.black,
+      fillColor: Colors.deepPurple[50],
+      renderBorder: true,
+      borderRadius: BorderRadius.circular(5),
+      children: <Widget>[
+        Text(text1, style: TextStyle(fontSize: 10)),
+        Text(text2, style: TextStyle(fontSize: 10)),
+      ],
+      onPressed: (int index) {
+        setState(() {
+          for (int i = 0; i < isSelected.length; i++) {
+            isSelected[i] = i == index;
+          }
+          //isSelected[index] = !isSelected[index];
+        });
+      },
     );
   }
 }
