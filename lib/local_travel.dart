@@ -1,10 +1,15 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:getwidget/components/toggle/gf_toggle.dart';
-import 'package:humanware/mobile.dart';
 
-import 'constants.dart';
-import 'toggle.dart';
+import 'mobile.dart';
+
+const kPrimaryColor = Colors.deepPurpleAccent;
+final kboxdecoration = BoxDecoration(
+    shape: BoxShape.rectangle,
+    borderRadius: BorderRadius.circular(12),
+    border: Border.all(color: Color(0xFFC7C7C7)));
+const ktextStyle = TextStyle(fontWeight: FontWeight.bold);
 
 class LocalTravel extends StatefulWidget {
   const LocalTravel({Key? key}) : super(key: key);
@@ -30,7 +35,7 @@ class _LocalTravelState extends State<LocalTravel> {
                 //       icon:Text('Chat'),
                 //     ] ),
                 Row(
-                  children: [
+                  children: const [
                     Text(
                       'Expense type',
                       style: TextStyle(fontWeight: FontWeight.bold),
@@ -44,15 +49,15 @@ class _LocalTravelState extends State<LocalTravel> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Expanded(
                   flex: 1,
                   child: Row(
                     children: [
-                      ToggleButton(),
-                      SizedBox(
+                      const ToggleButton(),
+                      const SizedBox(
                         width: 26,
                       ),
                       // DropdownButton(items: items, onChanged: onChanged)
@@ -63,7 +68,8 @@ class _LocalTravelState extends State<LocalTravel> {
                           height: 43,
                           width: 139,
                           decoration: BoxDecoration(
-                              border: Border.all(color: Color(0xFFC7C7C7)),
+                              border:
+                                  Border.all(color: const Color(0xFFC7C7C7)),
                               borderRadius: BorderRadius.circular(8)),
                           child: Center(
                             child: DropdownButton<String>(
@@ -401,6 +407,57 @@ class BoxContainer extends StatelessWidget {
           Text(text),
         ],
       ),
+    );
+  }
+}
+
+class ToggleButton extends StatefulWidget {
+  const ToggleButton({Key? key}) : super(key: key);
+
+  @override
+  State<ToggleButton> createState() => _ToggleButtonState();
+}
+
+class _ToggleButtonState extends State<ToggleButton> {
+  List<bool> isSelected = [true, false];
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 43,
+      width: 135,
+      padding: EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        shape: BoxShape.rectangle,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: Color(0xFFC7C7C7)),
+      ),
+      child: Center(
+        child: buildToggleButtons('Self', 'Hired'),
+      ),
+    );
+  }
+
+  ToggleButtons buildToggleButtons(String text1, String text2) {
+    return ToggleButtons(
+      isSelected: isSelected,
+      selectedColor: Colors.deepPurpleAccent,
+      color: Colors.black,
+      fillColor: Colors.deepPurple[50],
+      renderBorder: true,
+      borderRadius: BorderRadius.circular(5),
+      children: <Widget>[
+        Text(text1, style: TextStyle(fontSize: 10)),
+        Text(text2, style: TextStyle(fontSize: 10)),
+      ],
+      onPressed: (int index) {
+        setState(() {
+          for (int i = 0; i < isSelected.length; i++) {
+            isSelected[i] = i == index;
+          }
+          //isSelected[index] = !isSelected[index];
+        });
+      },
     );
   }
 }

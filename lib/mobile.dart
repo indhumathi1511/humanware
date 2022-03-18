@@ -1,10 +1,16 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:getwidget/components/toggle/gf_toggle.dart';
-import 'package:humanware/constants.dart';
 
-import 'local_travel.dart';
-import 'toggle.dart';
+import 'toggle1.dart';
+//import 'toggle.dart';
+
+const kPrimaryColor = Colors.deepPurpleAccent;
+final kboxdecoration = BoxDecoration(
+    shape: BoxShape.rectangle,
+    borderRadius: BorderRadius.circular(12),
+    border: Border.all(color: Color(0xFFC7C7C7)));
+const ktextStyle = TextStyle(fontWeight: FontWeight.w600);
 
 class Mobile extends StatefulWidget {
   const Mobile({Key? key}) : super(key: key);
@@ -14,7 +20,6 @@ class Mobile extends StatefulWidget {
 }
 
 class _MobileState extends State<Mobile> {
-  ToggleButton toggleButton = ToggleButton();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,29 +49,32 @@ class _MobileState extends State<Mobile> {
               flex: 1,
               child: Row(
                 children: [
-                  Expanded(flex: 1, child: ToggleButton()),
+                  Expanded(flex: 1, child: ToggleButtonn()),
                   SizedBox(
                     width: 26,
                   ),
                   Expanded(
                     flex: 1,
-                    child: Container(
-                      height: 43,
-                      width: 139,
-                      decoration: kboxdecoration,
-                      child: Row(
-                        children: [
-                          Center(
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text('Airtel'),
+                    child: Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Container(
+                        height: 43,
+                        width: 139,
+                        decoration: kboxdecoration,
+                        child: Row(
+                          children: [
+                            Center(
+                              child: Padding(
+                                padding: const EdgeInsets.all(6.0),
+                                child: Center(child: Text('Airtel')),
+                              ),
                             ),
-                          ),
-                          SizedBox(
-                            width: 50,
-                          ),
-                          Icon(Icons.keyboard_arrow_down),
-                        ],
+                            SizedBox(
+                              width: 30,
+                            ),
+                            Icon(Icons.keyboard_arrow_down),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -101,8 +109,9 @@ class _MobileState extends State<Mobile> {
               width: 295,
               decoration: kboxdecoration,
               child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Text('HumanWare Phase2 UI/Ux'),
+                padding: const EdgeInsets.only(
+                    left: 15, right: 120, top: 12, bottom: 11),
+                child: Center(child: Text('HumanWare Phase2 UI/Ux')),
               ),
             ),
             SizedBox(
@@ -130,18 +139,50 @@ class _MobileState extends State<Mobile> {
               children: [
                 Expanded(
                   flex: 1,
-                  child: TextFieldWidget(text: '+91923456778'),
+
+                  child: Container(
+                    height: 43,
+                    decoration: kboxdecoration,
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                          left: 10, right: 5, top: 12, bottom: 11),
+                      child: Center(child: Text('+91 9876543218')),
+                    ),
+                  ),
+
+                  // child: Center(child: TextFieldWidget(text: '+91 923456778')),
                 ),
                 SizedBox(
                   width: 25,
                 ),
                 Expanded(
-                  flex: 1,
-                  child: BoxContainer(
-                    text: '25 Jan \'22',
-                    icon: Icons.calendar_month,
-                  ),
-                ),
+                    flex: 1,
+                    child: Container(
+                      height: 43,
+                      decoration: kboxdecoration,
+                      child: Row(
+                        children: [
+                          Container(
+                            child: Icon(Icons.calendar_month),
+                            decoration: BoxDecoration(
+                                shape: BoxShape.rectangle,
+                                borderRadius: BorderRadius.circular(6),
+                                border: Border.all(color: Color(0xFFC7C7C7))),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          Text('25 Jan \'22'),
+                        ],
+                      ),
+                    )
+
+                    // BoxContainer(
+                    //   text: '25 Jan \'22',
+                    //
+                    //   icon: Icons.calendar_month,
+                    // ),
+                    ),
               ],
             ),
             SizedBox(
@@ -154,7 +195,15 @@ class _MobileState extends State<Mobile> {
             SizedBox(
               height: 10,
             ),
-            TextFieldWidget(text: 'DF0261205'),
+            Container(
+              height: 43,
+              decoration: kboxdecoration,
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 10, right: 5, top: 12, bottom: 11),
+                child: Text('DF0261205'),
+              ),
+            ),
             SizedBox(
               height: 15,
             ),
@@ -165,7 +214,15 @@ class _MobileState extends State<Mobile> {
             SizedBox(
               height: 10,
             ),
-            TextFieldWidget(text: 'Rs 500'),
+            Container(
+              height: 43,
+              decoration: kboxdecoration,
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 10, right: 5, top: 12, bottom: 11),
+                child: Text('₹ 500'),
+              ),
+            ),
             SizedBox(
               height: 15,
             ),
@@ -176,7 +233,15 @@ class _MobileState extends State<Mobile> {
             SizedBox(
               height: 10,
             ),
-            TextFieldWidget(text: 'Rs 500'),
+            Container(
+              height: 43,
+              decoration: kboxdecoration,
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 10, right: 5, top: 12, bottom: 11),
+                child: Text('₹ 500'),
+              ),
+            ),
             SizedBox(
               height: 15,
             ),
@@ -268,25 +333,26 @@ class _MobileState extends State<Mobile> {
   }
 }
 
-class TextFieldWidget extends StatelessWidget {
-  TextFieldWidget({required this.text});
-  final String text;
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 43,
-      child: Center(
-        child: TextField(
-          minLines: 1,
-          style: TextStyle(fontSize: 15),
-          decoration: InputDecoration(
-            border: OutlineInputBorder(
-              borderRadius: BorderRadius.circular((12)),
-            ),
-            hintText: text,
-          ),
-        ),
-      ),
-    );
-  }
-}
+// class TextFieldWidget extends StatelessWidget {
+//   TextFieldWidget({required this.text});
+//   final String text;
+//   @override
+//   Widget build(BuildContext context) {
+//     return Container(
+//       height: 43,
+//       width: 135,
+//       child: Center(
+//         child: TextField(
+//           minLines: 1,
+//           style: TextStyle(fontSize: 15),
+//           decoration: InputDecoration(
+//             border: OutlineInputBorder(
+//               borderRadius: BorderRadius.circular((12)),
+//             ),
+//             hintText: text,
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
