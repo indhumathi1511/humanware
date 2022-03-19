@@ -2,8 +2,6 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:getwidget/components/toggle/gf_toggle.dart';
 
-import 'mobile.dart';
-
 const kPrimaryColor = Colors.deepPurpleAccent;
 final kboxdecoration = BoxDecoration(
     shape: BoxShape.rectangle,
@@ -453,12 +451,7 @@ class _LocalTravelState extends State<LocalTravel> {
                         minimumSize: const Size(180, 47),
                         // Background color
                       ),
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const Mobile()));
-                      },
+                      onPressed: () {},
                       child: const Text(
                         ' + Add',
                         style: TextStyle(

@@ -1,7 +1,6 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:getwidget/components/toggle/gf_toggle.dart';
-import 'package:humanware/local_travel.dart';
 
 const kPrimaryColor = Colors.deepPurpleAccent;
 final kboxdecoration = BoxDecoration(
@@ -260,13 +259,7 @@ class _MiscellaneousState extends State<Miscellaneous> {
                       minimumSize: const Size(180, 47),
                       // Background color
                     ),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const LocalTravel()));
-                      // Navigator.pop(context);
-                    },
+                    onPressed: () {},
                     child: const Text(
                       ' + Add',
                       style: TextStyle(

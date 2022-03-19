@@ -1,7 +1,6 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:getwidget/components/toggle/gf_toggle.dart';
-import 'package:humanware/miscellanous.dart';
 
 const kPrimaryColor = Colors.deepPurpleAccent;
 final kboxdecoration = BoxDecoration(
@@ -325,10 +324,6 @@ class _MobileState extends State<Mobile> {
                     // Background color
                   ),
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const Miscellaneous()));
                     //Navigator.pop(context);
                   },
                   child: const Text(
