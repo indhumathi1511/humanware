@@ -2,9 +2,13 @@ import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:getwidget/components/toggle/gf_toggle.dart';
 
-import 'constants.dart';
-import 'toggle1.dart';
-//import 'toggle.dart';
+const kPrimaryColor = Colors.deepPurpleAccent;
+final kboxdecoration = BoxDecoration(
+    shape: BoxShape.rectangle,
+    borderRadius: BorderRadius.circular(12),
+    border: Border.all(color: Color(0xFFC7C7C7)));
+const ktextStyle = TextStyle(fontWeight: FontWeight.w600);
+final kBorderColor = Colors.deepPurple.shade50;
 
 class Mobile extends StatefulWidget {
   const Mobile({Key? key}) : super(key: key);
@@ -64,9 +68,12 @@ class _MobileState extends State<Mobile> {
                               ),
                             ),
                             SizedBox(
-                              width: 30,
+                              width: 39,
                             ),
-                            Icon(Icons.keyboard_arrow_down),
+                            Icon(
+                              Icons.keyboard_arrow_down,
+                              size: 17,
+                            ),
                           ],
                         ),
                       ),
@@ -150,22 +157,27 @@ class _MobileState extends State<Mobile> {
                   width: 25,
                 ),
                 Expanded(
-                    flex: 1,
-                    child: Container(
-                      height: 43,
-                      decoration: kboxdecoration,
+                  flex: 1,
+                  child: Container(
+                    height: 43,
+                    width: 295,
+                    decoration: kboxdecoration,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
                       child: Row(
                         children: [
                           Container(
+                            height: 24,
+                            width: 24,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(7),
+                              color: kBorderColor,
+                            ),
                             child: Icon(
                               Icons.calendar_month,
-                              size: 15,
+                              size: 13,
                               color: kPrimaryColor,
                             ),
-                            decoration: BoxDecoration(
-                                shape: BoxShape.rectangle,
-                                borderRadius: BorderRadius.circular(5),
-                                border: Border.all(color: Color(0xFFC7C7C7))),
                           ),
                           SizedBox(
                             width: 10,
@@ -173,14 +185,9 @@ class _MobileState extends State<Mobile> {
                           Text('25 Jan \'22'),
                         ],
                       ),
-                    )
-
-                    // BoxContainer(
-                    //   text: '25 Jan \'22',
-                    //
-                    //   icon: Icons.calendar_month,
-                    // ),
                     ),
+                  ),
+                ),
               ],
             ),
             SizedBox(
@@ -215,9 +222,9 @@ class _MobileState extends State<Mobile> {
             Container(
               height: 43,
               decoration: kboxdecoration,
-              child: Padding(
-                padding: const EdgeInsets.only(
-                    left: 10, right: 5, top: 12, bottom: 11),
+              child: const Padding(
+                padding:
+                    EdgeInsets.only(left: 10, right: 5, top: 12, bottom: 11),
                 child: Text('₹ 500'),
               ),
             ),
@@ -255,6 +262,7 @@ class _MobileState extends State<Mobile> {
               decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular((12)),
+                  // border: Border.all(color: Color(0xFFC7C7C7)),
                 ),
                 hintText: 'I am going to meet the tasneem for sales discussion',
               ),
@@ -331,26 +339,56 @@ class _MobileState extends State<Mobile> {
   }
 }
 
-// class TextFieldWidget extends StatelessWidget {
-//   TextFieldWidget({required this.text});
-//   final String text;
-//   @override
-//   Widget build(BuildContext context) {
-//     return Container(
-//       height: 43,
-//       width: 135,
-//       child: Center(
-//         child: TextField(
-//           minLines: 1,
-//           style: TextStyle(fontSize: 15),
-//           decoration: InputDecoration(
-//             border: OutlineInputBorder(
-//               borderRadius: BorderRadius.circular((12)),
-//             ),
-//             hintText: text,
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }
+class ToggleButtonn extends StatefulWidget {
+  const ToggleButtonn({Key? key}) : super(key: key);
+
+  @override
+  State<ToggleButtonn> createState() => _ToggleButtonnState();
+}
+
+class _ToggleButtonnState extends State<ToggleButtonn> {
+  List<bool> isSelected = [true, false];
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 43,
+      width: 135,
+      padding: EdgeInsets.all(8),
+      decoration: BoxDecoration(
+        //shape: BoxShape.rectangle,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: Color(0xFFC7C7C7)),
+      ),
+      child: Center(
+        child: buildToggleButtons('LandLine', 'Mobile'),
+      ),
+    );
+  }
+
+  ToggleButtons buildToggleButtons(String text1, String text2) {
+    return ToggleButtons(
+      isSelected: isSelected,
+      selectedColor: Colors.deepPurpleAccent,
+      color: Colors.black,
+      fillColor: Colors.deepPurple[50],
+      renderBorder: false,
+      borderRadius: BorderRadius.circular(8),
+      children: <Widget>[
+        Text(text1,
+            style: TextStyle(
+              fontSize: 10,
+            )),
+        Text(text2, style: TextStyle(fontSize: 10)),
+      ],
+      onPressed: (int index) {
+        setState(() {
+          for (int i = 0; i < isSelected.length; i++) {
+            isSelected[i] = i == index;
+          }
+          // isSelected[index] = !isSelected[index];
+        });
+      },
+    );
+  }
+}
