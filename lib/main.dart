@@ -17,26 +17,70 @@ class MyApp extends StatelessWidget {
         length: 3,
         child: Scaffold(
           appBar: AppBar(
-            backgroundColor: Colors.deepPurpleAccent,
-            bottom: const TabBar(
+            backgroundColor: Colors.white,
+            bottom: TabBar(
               tabs: [
-                Tab(
-                  icon: Icon(
-                    Icons.share_location_sharp,
+                Expanded(
+                  flex: 1,
+                  child: Tab(
+                    icon: Row(
+                      children: [
+                        Icon(
+                          Icons.share_location_sharp,
+                          size: 20,
+                          color: Colors.deepPurpleAccent,
+                        ),
+                        Text(
+                          'LocalTravel',
+                          style: TextStyle(color: Colors.black54),
+                        ),
+                      ],
+                    ),
                   ),
-                  text: 'LocalTravel',
                 ),
-                Tab(
-                  icon: Icon(Icons.phone_in_talk),
-                  text: 'Mobile',
+                Expanded(
+                  flex: 1,
+                  child: Tab(
+                    icon: Row(
+                      children: [
+                        Icon(
+                          Icons.phone_in_talk,
+                          size: 20,
+                          color: Colors.deepPurpleAccent,
+                        ),
+                        Text(
+                          'Mobile',
+                          style: TextStyle(color: Colors.black54),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
-                Tab(
-                  icon: Icon(Icons.file_copy_outlined),
-                  text: 'Miscellaneous',
+                Expanded(
+                  flex: 1,
+                  child: Tab(
+                    icon: Row(
+                      children: [
+                        Icon(
+                          Icons.file_copy_outlined,
+                          size: 20,
+                          color: Colors.deepPurpleAccent,
+                        ),
+                        Text(
+                          'Miscellaneous',
+                          style: TextStyle(color: Colors.black54, fontSize: 12),
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
               ],
             ),
-            title: Center(child: const Text('HumanWare')),
+            title: Center(
+                child: const Text(
+              'HumanWare',
+              style: TextStyle(color: Colors.black),
+            )),
           ),
           body: const TabBarView(
             children: [
