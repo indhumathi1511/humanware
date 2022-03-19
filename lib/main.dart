@@ -67,11 +67,11 @@ class MyApp extends StatelessWidget {
                 ),
               ],
             ),
-            title: Center(
-                child: const Text(
-              'HumanWare',
-              style: TextStyle(color: Colors.black),
-            )),
+            // title: Center(
+            //     child: const Text(
+            //   'HumanWare',
+            //   style: TextStyle(color: Colors.black),
+            // )),
           ),
           body: const TabBarView(
             children: [
