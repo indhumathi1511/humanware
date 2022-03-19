@@ -1,6 +1,5 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
-//import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:getwidget/components/toggle/gf_toggle.dart';
 
 import 'mobile.dart';
@@ -11,7 +10,7 @@ final kboxdecoration = BoxDecoration(
     borderRadius: BorderRadius.circular(12),
     border: Border.all(color: const Color(0xFFC7C7C7)));
 const ktextStyle = TextStyle(fontWeight: FontWeight.w500);
-final kBorderColor = Colors.deepPurple.shade50;
+const kBorderColor = Color(0xFFF5F3FA);
 
 class LocalTravel extends StatefulWidget {
   const LocalTravel({Key? key}) : super(key: key);
@@ -287,8 +286,8 @@ class _LocalTravelState extends State<LocalTravel> {
                                   color: kBorderColor,
                                 ),
                                 child: const Icon(
-                                  Icons.calendar_month,
-                                  size: 13,
+                                  Icons.calendar_today_outlined,
+                                  size: 18,
                                   color: kPrimaryColor,
                                 ),
                               ),

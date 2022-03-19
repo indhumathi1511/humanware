@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+//import 'miscellanous.dart';
 import 'local_travel.dart';
 
 void main() {
@@ -12,7 +13,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: LocalTravel(),
+      home: //Miscellaneous(),
+          LocalTravel(),
       // Mobile()
     );
   }
