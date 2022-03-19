@@ -20,58 +20,49 @@ class MyApp extends StatelessWidget {
             backgroundColor: Colors.white,
             bottom: TabBar(
               tabs: [
-                Expanded(
-                  flex: 1,
-                  child: Tab(
-                    icon: Row(
-                      children: [
-                        Icon(
-                          Icons.share_location_sharp,
-                          size: 20,
-                          color: Colors.deepPurpleAccent,
-                        ),
-                        Text(
-                          'LocalTravel',
-                          style: TextStyle(color: Colors.black54),
-                        ),
-                      ],
-                    ),
+                Tab(
+                  icon: Row(
+                    children: [
+                      Icon(
+                        Icons.share_location_sharp,
+                        size: 20,
+                        color: Colors.deepPurpleAccent,
+                      ),
+                      Text(
+                        'LocalTravel',
+                        style: TextStyle(color: Colors.black54),
+                      ),
+                    ],
                   ),
                 ),
-                Expanded(
-                  flex: 1,
-                  child: Tab(
-                    icon: Row(
-                      children: [
-                        Icon(
-                          Icons.phone_in_talk,
-                          size: 20,
-                          color: Colors.deepPurpleAccent,
-                        ),
-                        Text(
-                          'Mobile',
-                          style: TextStyle(color: Colors.black54),
-                        ),
-                      ],
-                    ),
+                Tab(
+                  icon: Row(
+                    children: [
+                      Icon(
+                        Icons.phone_in_talk,
+                        size: 20,
+                        color: Colors.deepPurpleAccent,
+                      ),
+                      Text(
+                        'Mobile',
+                        style: TextStyle(color: Colors.black54),
+                      ),
+                    ],
                   ),
                 ),
-                Expanded(
-                  flex: 1,
-                  child: Tab(
-                    icon: Row(
-                      children: [
-                        Icon(
-                          Icons.file_copy_outlined,
-                          size: 20,
-                          color: Colors.deepPurpleAccent,
-                        ),
-                        Text(
-                          'Miscellaneous',
-                          style: TextStyle(color: Colors.black54, fontSize: 12),
-                        ),
-                      ],
-                    ),
+                Tab(
+                  icon: Row(
+                    children: [
+                      Icon(
+                        Icons.file_copy_outlined,
+                        size: 20,
+                        color: Colors.deepPurpleAccent,
+                      ),
+                      Text(
+                        'Miscellaneous',
+                        style: TextStyle(color: Colors.black54, fontSize: 12),
+                      ),
+                    ],
                   ),
                 ),
               ],
